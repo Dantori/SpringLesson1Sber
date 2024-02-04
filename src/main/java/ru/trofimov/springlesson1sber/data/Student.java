@@ -3,6 +3,8 @@ package ru.trofimov.springlesson1sber.data;
 import ru.trofimov.springlesson1sber.data.enums.Grade;
 import ru.trofimov.springlesson1sber.data.enums.Subject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Student {
@@ -32,9 +34,31 @@ public class Student {
         this.status = status;
     }
 
+    private double calculateAverageGrade() {
+        List<Integer> grades = new ArrayList<>();
+        for (Grade grade : performance.values()) {
+            grades.add(grade.getValue());
+        }
+        int sum = 0;
+        for (Integer grade : grades) {
+            sum += grade;
+        }
+        if (grades.isEmpty()) {
+            return 0.0;
+        } else {
+            return (double) sum / grades.size();
+        }
+    }
+
+    private void init() {
+        if (calculateAverageGrade() >= 3) {
+            setStatus(true);
+        }
+    }
+
     @Override
     public String toString() {
-        return "Student{" +
+        return "Student {" +
                 "name='" + name + '\'' +
                 ", performance=" + performance +
                 ", status=" + status +

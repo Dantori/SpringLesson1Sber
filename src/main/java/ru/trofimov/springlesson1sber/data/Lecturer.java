@@ -2,11 +2,14 @@ package ru.trofimov.springlesson1sber.data;
 
 import org.springframework.stereotype.Component;
 
-@Component("Teacher")
+import java.util.List;
+
+@Component("teacher")
 public class Lecturer {
 
     private String name;
     private String subject;
+    List<Student> students;
 
     public String getName() {
         return name;

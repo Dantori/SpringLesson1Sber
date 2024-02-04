@@ -13,9 +13,9 @@ import java.util.Map;
 
 @Configuration
 @ComponentScan("ru.trofimov.springlesson1sber.data")
-public class BeanConfiguration {
+public class JavaContext {
 
-    @Bean
+    @Bean(initMethod = "init")
     public Student student1() {
         Map<Subject, Grade> performance = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class BeanConfiguration {
         return new Student("Emma", performance);
     }
 
-    @Bean
+    @Bean(initMethod = "init")
     public Student student2() {
         Map<Subject, Grade> performance = new HashMap<>();
 
@@ -39,7 +39,7 @@ public class BeanConfiguration {
         return new Student("Michael", performance);
     }
 
-    @Bean
+    @Bean(initMethod = "init")
     public Student student3() {
         Map<Subject, Grade> performance = new HashMap<>();
 
