@@ -1,0 +1,48 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="ru.trofimov.springlesson1sber.data" />
+
+    <bean id="student1" class="ru.trofimov.springlesson1sber.data.Student">
+        <constructor-arg index="0" value="Emma"/>
+        <constructor-arg index="1">
+            <map>
+                <entry key="MATHEMATICS" value="A"/>
+                <entry key="PHYSICS" value="C"/>
+                <entry key="INFORMATICS" value="B"/>
+                <entry key="RUSSIAN_LANGUAGE" value="C"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="student2" class="ru.trofimov.springlesson1sber.data.Student">
+        <constructor-arg index="0" value="Michael"/>
+        <constructor-arg index="1">
+            <map>
+                <entry key="MATHEMATICS" value="F"/>
+                <entry key="PHYSICS" value="D"/>
+                <entry key="INFORMATICS" value="B"/>
+                <entry key="RUSSIAN_LANGUAGE" value="C"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="student3" class="ru.trofimov.springlesson1sber.data.Student">
+        <constructor-arg index="0" value="Jil"/>
+        <constructor-arg index="1">
+            <map>
+                <entry key="MATHEMATICS" value="F"/>
+                <entry key="PHYSICS" value="F"/>
+                <entry key="INFORMATICS" value="F"/>
+                <entry key="RUSSIAN_LANGUAGE" value="F"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean class="ru.trofimov.springlesson1sber.config.CustomBeanPostProcessor" />
+</beans>
